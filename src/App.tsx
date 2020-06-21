@@ -5,8 +5,8 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <Button>Hello</Button>
-        <Button disabled={true}>Disabled Button</Button>
+        <Button className='custom'>Hello</Button>
+        <Button disabled>Disabled Button</Button>
         <Button btnType={ButtonType.Warning}>Warning Button</Button>
         <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
           Large Primary
@@ -14,10 +14,10 @@ function App() {
         <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>
           Small Danger
         </Button>
-        <Button btnType={ButtonType.Link} href='https://www.google.com'>
+        <Button btnType={ButtonType.Link} href='https://www.google.com' target='_blank'>
           Google Link
         </Button>
-        <Button btnType={ButtonType.Link} href='https://www.baidu.com' disabled={true}>
+        <Button btnType={ButtonType.Link} href='https://www.baidu.com' disabled>
           Disabled Link
         </Button>
         <p>
