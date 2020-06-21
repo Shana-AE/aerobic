@@ -1,4 +1,4 @@
-.btn {
+.ae-btn {
   position: relative;
   display: inline-block;
   font-weight: $btn-font-weight;
@@ -24,31 +24,31 @@
   }
 }
 
-.btn-lg {
+.ae-btn-lg {
   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
 }
 
-.btn-sm {
+.ae-btn-sm {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
 }
 
-.btn-primary {
+.ae-btn-primary {
   @include button-style($primary, $primary, $white);
 }
 
-.btn-warning {
+.ae-btn-warning {
   @include button-style($warning, $warning, $white);
 }
 
-.btn-danger {
+.ae-btn-danger {
   @include button-style($danger, $danger, $white);
 }
 
-.btn-default {
+.ae-btn-default {
   @include button-style($white, $gray-400, $body-color, $white, $primary, $primary);
 }
 
-.btn-link {
+.ae-btn-link {
   font-weight: $font-weight-normal;
   color: $btn-link-color;
   text-decoration: $link-decoration;

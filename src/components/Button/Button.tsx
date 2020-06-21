@@ -40,9 +40,9 @@ const Button: React.FC<ButtonProps> = (props) => {
     href,
     ...restProps
   } = props;
-  const classes = classNames('btn', {
-    [`btn-${btnType}`]: btnType,
-    [`btn-${size}`]: size,
+  const classes = classNames('ae-btn', {
+    [`ae-btn-${btnType}`]: btnType,
+    [`ae-btn-${size}`]: size,
     disabled: btnType === ButtonType.Link && disabled,
   }, className);
 
