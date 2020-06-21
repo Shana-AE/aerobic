@@ -9,7 +9,7 @@ export enum AlertType {
   Warning = 'warning',
 }
 
-interface BaseAlertProps {
+export interface BaseAlertProps {
   type?: string;
   className?: string;
   message?: string | React.ReactNode;
