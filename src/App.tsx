@@ -37,6 +37,7 @@ function App() {
       <section>
         <h1>Alert Area</h1>
         <Alert className='custom'>Default Alert</Alert>
+        <Alert type={AlertType.Primary} closable>Primary Alert</Alert>
         <Alert type={AlertType.Success}>Success Alert</Alert>
         <Alert type={AlertType.Warning}>Warning Alert</Alert>
         <Alert type={AlertType.Danger}>Danger Alert</Alert>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 
 export enum AlertType {
+  Primary = 'primary',
   Success = 'success',
   Default = 'default',
   Danger = 'danger',

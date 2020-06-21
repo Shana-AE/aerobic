@@ -211,3 +211,20 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 $btn-border-radius-sm:        $border-radius-sm !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// alert
+$alert-font-weight: $font-weight-normal !default;
+$alert-padding-y: .375rem !default;
+$alert-padding-x: .75rem !default;
+$alert-margin-bottom: 1rem !default;
+$alert-font-family: $font-family-base !default;
+$alert-font-size: $font-size-base !default;
+$alert-line-height: $line-height-base !default;
+$alert-border-width: $border-width !default;
+$alert-box-shadow: 0 1px 1px rgba($black, .075) !default;
+$alert-border-radius: $border-radius !default;
+
+// alert message
+$alert-message-margin-bottom: .25rem !default;
+$alert-message-font-size: $h5-font-size !default;
+$alert-message-font-weight: $font-weight-bolder !default;

@@ -1,0 +1,54 @@
+.ae-alert {
+  display: block;
+  position: relative;
+  background: $secondary;
+  color: $gray-900;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  line-height: $alert-line-height;
+  text-align: left;
+  background-image: none;
+  border: $alert-border-radius solid transparent;
+  border-radius: $alert-border-radius;
+  box-shadow: $alert-box-shadow;
+  & .ae-alert-message {
+    display: block;
+    margin-bottom: $alert-message-margin-bottom;
+    font-size: $alert-message-font-size;
+    font-weight: $alert-message-font-weight;
+  }
+  & .ae-alert-description {
+    display: block;
+  }
+  & .ae-alert-close-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.ae-alert-primary {
+  background: $primary;
+  color: $white;
+}
+
+.ae-alert-success {
+  background: $success;
+  color: $white;
+}
+
+.ae-alert-warning {
+  background: $warning;
+  color: $black;
+}
+
+.ae-alert-danger {
+  background: $danger;
+  color: $white;
+}
