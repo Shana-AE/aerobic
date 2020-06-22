@@ -1,6 +1,8 @@
 import React from 'react';
 import Button, { ButtonSize, ButtonType } from './components/Button/Button';
 import Alert, { AlertType } from './components/Alert/Alert';
+import Menu from './components/Menu/Menu';
+import MenuItem from './components/Menu/MenuItem';
 
 function App() {
   return (
@@ -43,6 +45,14 @@ function App() {
         <Alert type={AlertType.Danger}>Danger Alert</Alert>
         <Alert message='Alert message' description='Alert Description' />
         <Alert message='closable Alert message' description='closable Alert Description' closable/>
+      </section>
+      <section>
+        <h1>Menu Area</h1>
+        <Menu defaultIndex={0}>
+          <MenuItem>cool link 1</MenuItem>
+          <MenuItem>cool link 2</MenuItem>
+          <MenuItem>cool link 3</MenuItem>
+        </Menu>
       </section>
     </div>
   );
