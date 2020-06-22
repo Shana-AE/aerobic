@@ -1,8 +1,8 @@
 .ae-alert {
   display: block;
   position: relative;
-  background: $secondary;
-  color: $gray-900;
+  background: $cyan;
+  color: $gray-100;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
   line-height: $alert-line-height;
@@ -45,7 +45,7 @@
 
 .ae-alert-warning {
   background: $warning;
-  color: $black;
+  color: $white;
 }
 
 .ae-alert-danger {

@@ -53,6 +53,11 @@ function App() {
           <MenuItem index={1} disabled>cool link 2</MenuItem>
           <MenuItem index={2}>cool link 3</MenuItem>
         </Menu>
+        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}} mode='vertical'>
+          <MenuItem index={0}>vertical cool link 1</MenuItem>
+          <MenuItem index={1} disabled>vertical cool link 2</MenuItem>
+          <MenuItem index={2}>vertical cool link 3</MenuItem>
+        </Menu>
       </section>
     </div>
   );
