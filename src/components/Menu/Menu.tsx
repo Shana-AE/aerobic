@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import classNames from 'classnames';
 
 type MenuMode = 'horizontal' | 'vertical';
+type onSelectCallback = (selectedIndex: number) => void;
 
 interface MenuProps {
   defaultIndex?: number;
@@ -9,11 +10,20 @@ interface MenuProps {
   mode?: MenuMode;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  onSelect?: (selectedIndex: number) => void;
+  onSelect?: onSelectCallback;
 }
+
+interface IMenuContext {
+  index: number;
+  onSelect?: onSelectCallback;
+}
+
+export const MenuContext = createContext<IMenuContext>({ index: 0 });
 
 const Menu: React.FC<MenuProps> = (props) => {
   const { defaultIndex, className, mode, style, children, onSelect } = props;
+  const [currentActive, setActive] = useState(defaultIndex);
+
   const classes = classNames(
     'ae-menu',
     {
@@ -22,9 +32,23 @@ const Menu: React.FC<MenuProps> = (props) => {
     className,
   );
 
+  const handleClick = (index: number) => {
+    setActive(index);
+    if (onSelect) {
+      onSelect(index);
+    }
+  };
+
+  const passContext: IMenuContext = {
+    index: currentActive ? currentActive : 0,
+    onSelect: handleClick,
+  };
+
   return (
     <ul className={classes} style={style}>
-      {children}
+      <MenuContext.Provider value={passContext}>
+        {children}
+      </MenuContext.Provider>
     </ul>
   );
 };
@@ -32,6 +56,6 @@ const Menu: React.FC<MenuProps> = (props) => {
 Menu.defaultProps = {
   defaultIndex: 0,
   mode: 'horizontal',
-}
+};
 
 export default Menu;
