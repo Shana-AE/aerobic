@@ -30,6 +30,7 @@ const Menu: React.FC<MenuProps> = (props) => {
     'ae-menu',
     {
       'ae-menu-vertical': mode === 'vertical',
+      'ae-menu-horizontal': mode !== 'vertical',
     },
     className,
   );
@@ -52,7 +53,7 @@ const Menu: React.FC<MenuProps> = (props) => {
         MenuItemProps
       >;
       const { displayName } = childElement.type;
-      if (displayName === 'MenuItem') {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index,
         });

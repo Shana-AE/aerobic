@@ -3,6 +3,7 @@ import Button, { ButtonSize, ButtonType } from './components/Button/Button';
 import Alert, { AlertType } from './components/Alert/Alert';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
+import SubMenu from './components/Menu/SubMenu';
 
 function App() {
   return (
@@ -49,14 +50,22 @@ function App() {
       <section>
         <h1>Menu Area</h1>
         <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
-          <MenuItem index={0}>cool link 1</MenuItem>
-          <MenuItem index={1} disabled>cool link 2</MenuItem>
-          <MenuItem index={2}>cool link 3</MenuItem>
+          <MenuItem>cool link 1</MenuItem>
+          <MenuItem disabled>cool link 2</MenuItem>
+          <SubMenu title='dropdown'>
+            <MenuItem>dropdown 1</MenuItem>
+            <MenuItem>dropdown 2</MenuItem>
+          </SubMenu>
+          <MenuItem>cool link 3</MenuItem>
         </Menu>
         <Menu defaultIndex={0} onSelect={(index) => {alert(index)}} mode='vertical'>
-          <MenuItem index={0}>vertical cool link 1</MenuItem>
-          <MenuItem index={1} disabled>vertical cool link 2</MenuItem>
-          <MenuItem index={2}>vertical cool link 3</MenuItem>
+          <MenuItem>vertical cool link 1</MenuItem>
+          <MenuItem disabled>vertical cool link 2</MenuItem>
+          <SubMenu title='dropdown'>
+            <MenuItem>dropdown 1</MenuItem>
+            <MenuItem>dropdown 2</MenuItem>
+          </SubMenu>
+          <MenuItem>vertical cool link 3</MenuItem>
         </Menu>
       </section>
     </div>
