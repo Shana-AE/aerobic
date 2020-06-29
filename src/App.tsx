@@ -19,7 +19,11 @@ function App() {
         <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>
           Small Danger
         </Button>
-        <Button btnType={ButtonType.Link} href='https://www.google.com' target='_blank'>
+        <Button
+          btnType={ButtonType.Link}
+          href='https://www.google.com'
+          target='_blank'
+        >
           Google Link
         </Button>
         <Button btnType={ButtonType.Link} href='https://www.baidu.com' disabled>
@@ -40,16 +44,26 @@ function App() {
       <section>
         <h1>Alert Area</h1>
         <Alert className='custom'>Default Alert</Alert>
-        <Alert type={AlertType.Primary} closable>Primary Alert</Alert>
+        <Alert type={AlertType.Primary} closable>
+          Primary Alert
+        </Alert>
         <Alert type={AlertType.Success}>Success Alert</Alert>
         <Alert type={AlertType.Warning}>Warning Alert</Alert>
         <Alert type={AlertType.Danger}>Danger Alert</Alert>
         <Alert message='Alert message' description='Alert Description' />
-        <Alert message='closable Alert message' description='closable Alert Description' closable/>
+        <Alert
+          message='closable Alert message'
+          description='closable Alert Description'
+          closable
+        />
       </section>
       <section>
         <h1>Menu Area</h1>
-        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}}>
+        <Menu
+          onSelect={(index) => {
+            alert(index);
+          }}
+        >
           <MenuItem>cool link 1</MenuItem>
           <MenuItem disabled>cool link 2</MenuItem>
           <SubMenu title='dropdown'>
@@ -58,7 +72,13 @@ function App() {
           </SubMenu>
           <MenuItem>cool link 3</MenuItem>
         </Menu>
-        <Menu defaultIndex={0} onSelect={(index) => {alert(index)}} mode='vertical'>
+        <Menu
+          onSelect={(index) => {
+            alert(index);
+          }}
+          mode='vertical'
+          defaultOpenSubMenus={['2']}
+        >
           <MenuItem>vertical cool link 1</MenuItem>
           <MenuItem disabled>vertical cool link 2</MenuItem>
           <SubMenu title='dropdown'>

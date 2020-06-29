@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { MenuContext } from './Menu';
 
 export interface MenuItemProps {
-  index?: number;
+  index?: string;
   disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -18,16 +18,16 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
     'ae-menu-item',
     {
       disabled,
-      'active': context.index === index,
+      active: context.index === index,
     },
     className,
   );
 
   const handleClick = () => {
-    if (context.onSelect && !disabled && (typeof index === 'number')) {
+    if (context.onSelect && !disabled && typeof index === 'string') {
       context.onSelect(index);
     }
-  }
+  };
 
   return (
     <li className={classes} style={style} onClick={handleClick}>

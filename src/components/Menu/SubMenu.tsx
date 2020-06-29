@@ -5,18 +5,27 @@ import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
 
 export interface SubMenuProps {
-  index?:number;
+  index?: string;
   title: string;
   className?: string;
 }
 
 const SubMenu: React.FC<SubMenuProps> = (props) => {
-  const [ menuOpen, setMenuOpen ] = useState(false);
   const { index, title, className, children } = props;
   const context = useContext(MenuContext);
-  const classes = classNames('ae-menu-item ae-submenu-item', {
-    'active': context.index === index,
-  }, className);
+  const openedSubMenus = context.defaultOpenSubMenus as Array<string>;
+  const isOpened =
+    index && context.mode === 'vertical'
+      ? openedSubMenus.includes(index)
+      : false;
+  const [menuOpen, setMenuOpen] = useState(isOpened);
+  const classes = classNames(
+    'ae-menu-item ae-submenu-item',
+    {
+      active: context.index === index,
+    },
+    className,
+  );
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -31,34 +40,44 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       setMenuOpen(toggle);
     }, 300);
   };
-  
-  const clickEvents = context.mode === 'vertical' ? {
-    onClick: handleClick,
-  }: {};
 
-  const hoverEvents = context.mode !== 'vertical' ? {
-    onMouseEnter: (e: React.MouseEvent) => { handleMouse(e, true) },
-    onMouseLeave: (e: React.MouseEvent) => { handleMouse(e, false)},
-  }: {};
+  const clickEvents =
+    context.mode === 'vertical'
+      ? {
+          onClick: handleClick,
+        }
+      : {};
+
+  const hoverEvents =
+    context.mode !== 'vertical'
+      ? {
+          onMouseEnter: (e: React.MouseEvent) => {
+            handleMouse(e, true);
+          },
+          onMouseLeave: (e: React.MouseEvent) => {
+            handleMouse(e, false);
+          },
+        }
+      : {};
 
   const renderChildren = () => {
     const subMenuClasses = classNames('ae-submenu', {
       'ae-menu-opened': menuOpen,
-    })
-    const childrenComponent = React.Children.map(children, (child, index) => {
+    });
+    const childrenComponent = React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
       if (childElement.type.displayName === 'MenuItem') {
-        return childElement;
+        return React.cloneElement(childElement, {
+          index: `${index}-${i}`,
+        });
       } else {
-        console.error('Warning: SubMenu has a child which is not a MenuItem component');
+        console.error(
+          'Warning: SubMenu has a child which is not a MenuItem component',
+        );
       }
     });
-    return (
-      <ul className={subMenuClasses}>
-        {childrenComponent}
-      </ul>
-    )
-  }
+    return <ul className={subMenuClasses}>{childrenComponent}</ul>;
+  };
 
   return (
     <li key={index} className={classes} {...hoverEvents}>
