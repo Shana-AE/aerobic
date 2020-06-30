@@ -4,8 +4,11 @@ import Alert, { AlertType } from './components/Alert/Alert';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
+import Tab from './components/Tab/Tab';
+import TabItem from './components/Tab/TabItem';
 
 function App() {
+  const customTabLabel = <Button btnType={ButtonType.Primary}>Button Tab</Button>;
   return (
     <div className='App'>
       <section>
@@ -87,6 +90,20 @@ function App() {
           </SubMenu>
           <MenuItem>vertical cool link 3</MenuItem>
         </Menu>
+      </section>
+      <section>
+        <h1>Tab Area</h1>
+        <Tab mode='line'>
+          <TabItem label='card1'>this is content one</TabItem>
+          <TabItem label='card2'>this is content two</TabItem>
+          <TabItem label={customTabLabel}>this is a custom label</TabItem>
+          <TabItem label='card3' disabled>this is content three</TabItem>
+        </Tab>
+        <Tab mode='box'>
+          <TabItem label='card1'>this is content one</TabItem>
+          <TabItem label='card2'>this is content two</TabItem>
+          <TabItem label='card3' disabled>this is content three</TabItem>
+        </Tab>
       </section>
     </div>
   );
