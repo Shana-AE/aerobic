@@ -10,7 +10,7 @@ export interface TabProps {
   defaultIndex?: number;
   className?: string;
   mode?: MenuMode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
   onSelect?: onSelectCallback;
 }
@@ -72,9 +72,9 @@ const Tab: React.FC<TabProps> = (props) => {
   };
 
   return (
-    <div className={classes} style={style}>
-      <ul className='ae-tab-nav'>{renderNavLink()}</ul>
-      <div className='ae-tabs-content'>{renderContent()}</div>
+    <div className={classes} style={style} data-testid='test-tab'>
+      <ul className='ae-tab-nav' data-testid='test-tab-nav'>{renderNavLink()}</ul>
+      <div className='ae-tabs-content' data-testid='test-tab-content'>{renderContent()}</div>
     </div>
   );
 };
