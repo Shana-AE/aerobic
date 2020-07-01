@@ -93,13 +93,13 @@ function App() {
       </section>
       <section>
         <h1>Tab Area</h1>
-        <Tab mode='line'>
+        <Tab mode='line' onSelect={((index)=>{alert(index)})}>
           <TabItem label='card1'>this is content one</TabItem>
           <TabItem label='card2'>this is content two</TabItem>
           <TabItem label={customTabLabel}>this is a custom label</TabItem>
           <TabItem label='card3' disabled>this is content three</TabItem>
         </Tab>
-        <Tab mode='box'>
+        <Tab mode='box' onSelect={((index)=>{alert(index)})}>
           <TabItem label='card1'>this is content one</TabItem>
           <TabItem label='card2'>this is content two</TabItem>
           <TabItem label='card3' disabled>this is content three</TabItem>
