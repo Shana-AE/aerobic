@@ -1,4 +1,7 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
 import Button, { ButtonSize, ButtonType } from './components/Button/Button';
 import Alert, { AlertType } from './components/Alert/Alert';
 import Menu from './components/Menu/Menu';
@@ -6,6 +9,9 @@ import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
 import Tab from './components/Tab/Tab';
 import TabItem from './components/Tab/TabItem';
+import Icon from './components/Icon/Icon';
+
+library.add(fas);
 
 function App() {
   const customTabLabel = <Button btnType={ButtonType.Primary}>Button Tab</Button>;
@@ -104,6 +110,10 @@ function App() {
           <TabItem label='card2'>this is content two</TabItem>
           <TabItem label='card3' disabled>this is content three</TabItem>
         </Tab>
+      </section>
+      <section>
+        <h1>Icon Area</h1>
+        <Icon icon='coffee' theme='danger' size='10x'/>
       </section>
     </div>
   );
