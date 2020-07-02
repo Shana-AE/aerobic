@@ -1,0 +1,5 @@
+@each $key, $val in $theme-colors {
+  .ae-icon-#{$key} {
+    color: $val;
+  }
+}

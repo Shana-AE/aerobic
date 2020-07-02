@@ -113,7 +113,8 @@ function App() {
       </section>
       <section>
         <h1>Icon Area</h1>
-        <Icon icon='coffee' theme='danger' size='10x'/>
+        <Icon icon='arrow-down' theme='danger' size='10x'/>
+        <Icon icon='coffee' theme='primary' size='10x'/>
       </section>
     </div>
   );
