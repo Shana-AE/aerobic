@@ -23,7 +23,7 @@ const Icon: React.FC<IconProps> = (props) => {
   const { className, theme, ...restProps } = props;
   const classes = classNames('ae-icon', {
     [`ae-icon-${theme}`]: theme,
-  }, classNames);
+  }, className);
   return (
     <FontAwesomeIcon className={classes} {...restProps} />
   );

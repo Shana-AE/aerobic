@@ -27,9 +27,29 @@
   }
   .ae-submenu-item {
     position: relative;
-    .submenu-title {
+    .ae-submenu-title {
       display: flex;
       align-items: center;
+    }
+    .arrow-icon {
+      margin-left: 3px;
+      transition: transform .25s ease-in-out;
+    }
+    &:hover {
+      .arrow-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .vertical {
+    .arrow-icon {
+      transform: rotate(0deg) !important;
+    }
+  }
+
+  .vertical.opened {
+    .arrow-icon {
+      transform: rotate(180deg) !important;
     }
   }
   .ae-submenu {

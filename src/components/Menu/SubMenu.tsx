@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
 
+import Icon from '../Icon/Icon';
+
 export interface SubMenuProps {
   index?: string;
   title: string;
@@ -23,6 +25,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     'ae-menu-item ae-submenu-item',
     {
       active: context.index === index,
+      opened: menuOpen,
+      vertical: context.mode === 'vertical',
     },
     className,
   );
@@ -83,6 +87,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     <li key={index} className={classes} {...hoverEvents}>
       <div className='ae-submenu-title' {...clickEvents}>
         {title}
+        <Icon icon="angle-down" className="arrow-icon"/>
       </div>
       {renderChildren()}
     </li>
