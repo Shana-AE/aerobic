@@ -90,7 +90,7 @@ describe('test Menu and MenuItem components', () => {
   });
 
   it('should show dropdown items when hover on subMenu', async () => {
-    expect(wrapper.queryByText('drop1')).not.toBeVisible();
+    expect(wrapper.queryByText('drop1')).toBeNull();
     const dropdownElement = wrapper.getByText('dropdown');
     fireEvent.mouseEnter(dropdownElement);
     // assert wouldn't wait for async operation
@@ -109,7 +109,7 @@ describe('test Menu and MenuItem components', () => {
     cleanup();
     const wrapper = render(generateMenu(testVerticalProps));
     wrapper.container.append(createStyleFile());
-    expect(wrapper.queryByText('drop1')).not.toBeVisible();
+    expect(wrapper.queryByText('drop1')).toBeNull();
     const dropdownElement = wrapper.getByText('dropdown');
     fireEvent.click(dropdownElement);
     expect(wrapper.queryByText('drop1')).toBeVisible();

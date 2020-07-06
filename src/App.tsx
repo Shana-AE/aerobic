@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
-import Button, { ButtonSize, ButtonType } from './components/Button/Button';
+import Button from './components/Button/Button';
 import Alert, { AlertType } from './components/Alert/Alert';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
@@ -10,32 +10,30 @@ import SubMenu from './components/Menu/SubMenu';
 import Tab from './components/Tab/Tab';
 import TabItem from './components/Tab/TabItem';
 import Icon from './components/Icon/Icon';
+import Transition from './components/Transition/Transition';
 
 library.add(fas);
 
 function App() {
-  const customTabLabel = <Button btnType={ButtonType.Primary}>Button Tab</Button>;
+  const customTabLabel = <Button btnType='primary'>Button Tab</Button>;
+  const [show, setShow] = useState(false);
   return (
     <div className='App'>
       <section>
         <h1>Button Area</h1>
         <Button className='custom'>Hello</Button>
         <Button disabled>Disabled Button</Button>
-        <Button btnType={ButtonType.Warning}>Warning Button</Button>
-        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
+        <Button btnType='warning'>Warning Button</Button>
+        <Button btnType='primary' size='lg'>
           Large Primary
         </Button>
-        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>
+        <Button btnType='danger' size='sm'>
           Small Danger
         </Button>
-        <Button
-          btnType={ButtonType.Link}
-          href='https://www.google.com'
-          target='_blank'
-        >
+        <Button btnType='link' href='https://www.google.com' target='_blank'>
           Google Link
         </Button>
-        <Button btnType={ButtonType.Link} href='https://www.baidu.com' disabled>
+        <Button btnType='link' href='https://www.baidu.com' disabled>
           Disabled Link
         </Button>
         <p>
@@ -99,22 +97,76 @@ function App() {
       </section>
       <section>
         <h1>Tab Area</h1>
-        <Tab mode='line' onSelect={((index)=>{alert(index)})}>
+        <Tab
+          mode='line'
+          onSelect={(index) => {
+            alert(index);
+          }}
+        >
           <TabItem label='card1'>this is content one</TabItem>
           <TabItem label='card2'>this is content two</TabItem>
           <TabItem label={customTabLabel}>this is a custom label</TabItem>
-          <TabItem label='card3' disabled>this is content three</TabItem>
+          <TabItem label='card3' disabled>
+            this is content three
+          </TabItem>
         </Tab>
-        <Tab mode='box' onSelect={((index)=>{alert(index)})}>
+        <Tab
+          mode='box'
+          onSelect={(index) => {
+            alert(index);
+          }}
+        >
           <TabItem label='card1'>this is content one</TabItem>
           <TabItem label='card2'>this is content two</TabItem>
-          <TabItem label='card3' disabled>this is content three</TabItem>
+          <TabItem label='card3' disabled>
+            this is content three
+          </TabItem>
         </Tab>
       </section>
       <section>
         <h1>Icon Area</h1>
-        <Icon icon='arrow-down' theme='danger' size='10x'/>
-        <Icon icon='coffee' theme='primary' size='10x'/>
+        <Icon icon='arrow-down' theme='danger' size='10x' />
+        <Icon icon='coffee' theme='primary' size='10x' />
+      </section>
+      <section>
+        <h1>Transition Area</h1>
+        <Button size='lg' onClick={() => setShow(!show)}>
+          toggle
+        </Button>
+        <Transition
+          in={show}
+          timeout={300}
+          animation='zoom-in-left'
+          data-testid='test'
+        >
+          <div>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload
+            </p>
+            <p>
+              Edit <code>src/App.tsx</code> and save to reload
+            </p>
+          </div>
+        </Transition>
+        <Transition
+          in={show}
+          timeout={300}
+          animation='zoom-in-left'
+          wrapper
+        >
+          <Button btnType='primary' size='lg'>
+            Large Button
+          </Button>
+        </Transition>
       </section>
     </div>
   );

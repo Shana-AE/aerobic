@@ -1,11 +1,15 @@
 import React, { useContext, useState, FunctionComponentElement } from 'react';
 import classNames from 'classnames';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 import { MenuContext } from './Menu';
 import { MenuItemProps } from './MenuItem';
 import Transition from '../Transition/Transition';
 
 import Icon from '../Icon/Icon';
+
+library.add(faAngleDown);
 
 export interface SubMenuProps {
   index?: string;
