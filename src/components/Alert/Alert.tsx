@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
-export enum AlertType {
-  Primary = 'primary',
-  Success = 'success',
-  Default = 'default',
-  Danger = 'danger',
-  Warning = 'warning',
-}
+import Icon from '../Icon/Icon';
+import Transition from '../Transition/Transition';
+
+library.add(faTimes);
+
+export type AlertType =
+  | 'primary'
+  | 'success'
+  | 'default'
+  | 'danger'
+  | 'warning';
 
 export interface BaseAlertProps {
-  type?: string;
+  type?: AlertType;
   className?: string;
   message?: string | React.ReactNode;
   description?: string | React.ReactNode;
@@ -25,13 +31,18 @@ const Alert: React.FC<BaseAlertProps> = (props) => {
   const closeHandler = (e: React.MouseEvent) => {
     e.preventDefault();
     setClosed(true);
-  }
+  };
 
   const CloseIcon = (
-    <button type='button' className='ae-alert-close-icon' onClick={closeHandler}>
-      X
+    <button
+      type='button'
+      className='ae-alert-close-icon'
+      onClick={closeHandler}
+    >
+      <Icon icon='times' />
     </button>
   );
+
 
   const classes = classNames(
     'ae-alert',
@@ -41,26 +52,31 @@ const Alert: React.FC<BaseAlertProps> = (props) => {
     className,
   );
 
+
   if (message && description) {
-    return closed ? null : (
-      <div className={classes}>
-        <span className='ae-alert-message'>{message}</span>
-        <span className='ae-alert-description'>{description}</span>
-        {closable && CloseIcon}
-      </div>
+    return (
+      <Transition in={!closed} timeout={300} animation='zoom-in-top'>
+        <div className={classes}>
+          <span className='ae-alert-message'>{message}</span>
+          <span className='ae-alert-description'>{description}</span>
+          {closable && CloseIcon}
+        </div>
+      </Transition>
     );
   } else {
-    return closed ? null :(
-      <div className={classes}>
-        {children}
-        {closable && CloseIcon}
-      </div>
+    return (
+      <Transition in={!closed} timeout={300} animation='zoom-in-top'>
+        <div className={classes}>
+          {children}
+          {closable && CloseIcon}
+        </div>
+      </Transition>
     );
   }
 };
 
 Alert.defaultProps = {
-  type: AlertType.Default,
+  type: 'default',
 };
 
 export default Alert;

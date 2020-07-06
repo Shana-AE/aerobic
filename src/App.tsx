@@ -3,7 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import Button from './components/Button/Button';
-import Alert, { AlertType } from './components/Alert/Alert';
+import Alert from './components/Alert/Alert';
 import Menu from './components/Menu/Menu';
 import MenuItem from './components/Menu/MenuItem';
 import SubMenu from './components/Menu/SubMenu';
@@ -51,12 +51,12 @@ function App() {
       <section>
         <h1>Alert Area</h1>
         <Alert className='custom'>Default Alert</Alert>
-        <Alert type={AlertType.Primary} closable>
+        <Alert type='primary' closable>
           Primary Alert
         </Alert>
-        <Alert type={AlertType.Success}>Success Alert</Alert>
-        <Alert type={AlertType.Warning}>Warning Alert</Alert>
-        <Alert type={AlertType.Danger}>Danger Alert</Alert>
+        <Alert type='success'>Success Alert</Alert>
+        <Alert type='warning'>Warning Alert</Alert>
+        <Alert type='danger'>Danger Alert</Alert>
         <Alert message='Alert message' description='Alert Description' />
         <Alert
           message='closable Alert message'
