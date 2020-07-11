@@ -3,10 +3,11 @@ import { action } from '@storybook/addon-actions';
 
 import Button from './Button';
 
-export default {
-  title: 'Button',
-  component: Button,
+const styles: React.CSSProperties = {
+  textAlign: 'center',
 };
+
+const CenterDecorator = (storyFn: any) => <div style={styles}>{storyFn()}</div>;
 
 export const defaultButton = () => (
   <Button onClick={action('clicked')}>default button</Button>
@@ -41,4 +42,10 @@ export const buttonWithType = () => (
 
 buttonWithType.story = {
   name: '不同类型的Button',
+};
+
+export default {
+  title: 'Button',
+  component: Button,
+  decorators: [CenterDecorator],
 };
