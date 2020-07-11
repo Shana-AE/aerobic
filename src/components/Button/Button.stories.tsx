@@ -1,5 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 
 import Button from './Button';
 
@@ -20,6 +21,11 @@ export const buttonWithSize = () => (
 
 buttonWithSize.story = {
   name: '不同尺寸的Button',
+  parameters: {
+    info: {
+      inline: false,
+    },
+  },
 };
 
 export const buttonWithType = () => (
@@ -41,4 +47,17 @@ buttonWithType.story = {
 export default {
   title: 'Button',
   component: Button,
+  decorators: [withInfo],
+  parameters: {
+    info: {
+      text: `
+      this is a button component
+      ## this is a header
+      ~~~js
+      const a = 'hello'
+      ~~~
+      `,
+      inline: true,
+    },
+  },
 };
