@@ -1,6 +1,5 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
 
 import Button from './Button';
 
@@ -47,17 +46,4 @@ buttonWithType.story = {
 export default {
   title: 'Button',
   component: Button,
-  decorators: [withInfo],
-  parameters: {
-    info: {
-      text: `
-      this is a button component
-      ## this is a header
-      ~~~js
-      const a = 'hello'
-      ~~~
-      `,
-      inline: true,
-    },
-  },
 };
