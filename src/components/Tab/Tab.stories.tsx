@@ -11,9 +11,7 @@ const customTabLabel = <Button btnType='primary'>Button Tab</Button>;
 export const lineTab = () => (
   <Tab
     mode='line'
-    onSelect={(index) => {
-      action(index.toString());
-    }}
+    onSelect={action('selected')}
   >
     <TabItem label='card1'>this is content one</TabItem>
     <TabItem label='card2'>this is content two</TabItem>
@@ -31,9 +29,7 @@ lineTab.story = {
 export const boxTab = () => (
   <Tab
     mode='box'
-    onSelect={(index) => {
-      alert(index);
-    }}
+    onSelect={action('selected')}
   >
     <TabItem label='card1'>this is content one</TabItem>
     <TabItem label='card2'>this is content two</TabItem>

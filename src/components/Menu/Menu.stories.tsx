@@ -5,13 +5,8 @@ import Menu from './Menu';
 import SubMenu from './SubMenu';
 import MenuItem from './MenuItem';
 
-// FIXME: action not work
 export const defaultMenu = () => (
-  <Menu
-    onSelect={(index) => {
-      action(index);
-    }}
-  >
+  <Menu onSelect={action('select')}>
     <MenuItem>cool link 1</MenuItem>
     <MenuItem disabled>cool link 2</MenuItem>
     <SubMenu title='dropdown'>
@@ -46,7 +41,7 @@ export const verticalMenu = () => (
 
 verticalMenu.story = {
   name: '垂直Menu',
-}
+};
 
 export default {
   title: 'Menu',
