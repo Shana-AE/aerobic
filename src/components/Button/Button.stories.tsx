@@ -8,7 +8,7 @@ export const defaultButton = () => (
 );
 
 defaultButton.story = {
-  name: '默认 Button',
+  name: 'Button',
 };
 
 export const buttonWithSize = () => (
