@@ -3,28 +3,15 @@ import { action } from '@storybook/addon-actions';
 
 import Button from './Button';
 
-export const defaultButton = () => (
-  <Button onClick={action('clicked')}>default button</Button>
-);
-
-defaultButton.story = {
-  name: 'Button',
-};
-
 export const buttonWithSize = () => (
   <>
-    <Button size='lg'>large Button</Button>
+    <Button size='lg' onClick={action('clicked')}>large Button</Button>
     <Button size='sm'>small Button</Button>
   </>
 );
 
 buttonWithSize.story = {
   name: '不同尺寸的Button',
-  parameters: {
-    info: {
-      inline: false,
-    },
-  },
 };
 
 export const buttonWithType = () => (

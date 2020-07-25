@@ -24,7 +24,7 @@ export interface BaseAlertProps {
   children?: React.ReactNode;
 }
 
-const Alert: React.FC<BaseAlertProps> = (props) => {
+export const Alert: React.FC<BaseAlertProps> = (props) => {
   const { type, className, message, description, children, closable } = props;
   const [closed, setClosed] = useState(false);
 

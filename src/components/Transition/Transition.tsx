@@ -10,6 +10,11 @@ type AnimationName =
 
 export type TransitionProps = CSSTransitionProps & {
   animation?: AnimationName;
+  /**
+   * 加入一个div进行包裹内部元素
+   *
+   * 如果不提供wrapper，且内部拥有transition, transition会冲突
+   */
   wrapper?: boolean;
 };
 

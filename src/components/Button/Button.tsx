@@ -7,11 +7,11 @@ export type ButtonType = 'primary' | 'default' | 'warning' | 'danger' | 'link';
 
 interface BaseButtonProps {
   className?: string;
-  /** disable button */
+  /** Disable button */
   disabled?: boolean;
-  /** set button size */
+  /** Set button `size` */
   size?: ButtonSize;
-  /** set button type */
+  /** Set button `type` */
   btnType?: ButtonType;
   children?: React.ReactNode;
   href?: string;
@@ -24,9 +24,12 @@ type AnchorButtonProps = BaseButtonProps &
 
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 
+// should use right markdown syntax
 /**
  * Button Component
+ *
  * ## Button header
+ *
  * ~~~js
  * console.log('jsdoc example');
  * import Button from 'aerobic';

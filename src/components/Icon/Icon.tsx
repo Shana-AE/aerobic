@@ -19,7 +19,22 @@ export interface IconProps extends FontAwesomeIconProps {
   theme?: ThemeProps;
 }
 
-const Icon: React.FC<IconProps> = (props) => {
+
+/**
+ * ## Icon Component
+ *
+ * you should import faIcons before using it
+ *
+ * e.g.
+ *
+ * ~~~js
+ * import { library } from '@fortawesome/fontawesome-svg-core';
+ * import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+ *
+ * library.add(faArrowDown);
+ * ~~~
+ */
+export const Icon: React.FC<IconProps> = (props) => {
   const { className, theme, ...restProps } = props;
   const classes = classNames('ae-icon', {
     [`ae-icon-${theme}`]: theme,
